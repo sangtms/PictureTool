@@ -11,6 +11,16 @@ from distutils.dir_util import copy_tree
 import logging
 from distutils import log
 
+def build_net_core(projPath):
+	p = subprocess.call(['dotnet', 'build', projPath, '--configuration','release'])
+	if p==0: return True	# exit early
+		
+	return False
+
+def deploy_net_core(application):
+	process = subprocess.Popen(['D:\AutoDeployer\AutoDeployer.exe', application], stdout=sys.stdout)
+	process.communicate()
+
 log.set_verbosity(log.INFO)
 log.set_threshold(log.INFO)
 
@@ -51,12 +61,3 @@ if not build_net_core(application):
 	
 print "Success !"
 	
-def build_net_core(projPath):
-	p = subprocess.call(['dotnet', 'build', projPath, '--configuration','release'])
-	if p==0: return True	# exit early
-		
-	return False
-
-def deploy_net_core(application):
-	process = subprocess.Popen(['D:\AutoDeployer\AutoDeployer.exe', application], stdout=sys.stdout)
-	process.communicate()
