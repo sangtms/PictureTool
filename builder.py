@@ -18,7 +18,7 @@ def build_net_core(projPath):
 	return False
 
 def deploy_net_core(application):
-	p = subprocess.Popen(['D:\AutoDeployer\AutoDeployer.exe', application], stdout=PIPE, bufsize=1)
+	p = subprocess.Popen(['D:\AutoDeployer\AutoDeployer.exe', application], stdout=subprocess.PIPE, bufsize=1)
 	with p.stdout:
 		for line in iter(p.stdout.readline, b''):
 			print line,
