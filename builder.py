@@ -14,6 +14,8 @@ from distutils import log
 log.set_verbosity(log.INFO)
 log.set_threshold(log.INFO)
 
+SEPERATE_LINE = '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -'
+
 solution = ""
 application = ""
 environment = ""
@@ -41,6 +43,9 @@ print "Build solution %s" % solution
 if not build_net_core(solution):
 	sys.exit(100)
 
+print SEPERATE_LINE
+print "Publish application"
+	
 if not build_net_core(application):
 	sys.exit(100)
 	
