@@ -5,7 +5,7 @@ import codecs
 import json
 #import builder
 #import pypyodbc
-from builder import MsBuilder
+#from builder import MsBuilder
 import shutil
 from distutils.dir_util import copy_tree
 import logging
