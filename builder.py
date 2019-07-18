@@ -56,7 +56,7 @@ if not build_net_core(solution):
 print SEPERATE_LINE
 print "Publish application"
 	
-if not build_net_core(application):
+if not deploy_net_core(application):
 	sys.exit(100)
 	
 print "Success !"
