@@ -18,8 +18,10 @@ def build_net_core(projPath):
 	return False
 
 def deploy_net_core(application):
-	process = subprocess.Popen(['/AutoDeployer/AutoDeployer.exe', application], stdout=sys.stdout)
+	process = subprocess.Popen(['D:\AutoDeployer\AutoDeployer.exe', application], stdout=sys.stdout)
 	process.communicate()
+	
+	return True
 
 log.set_verbosity(log.INFO)
 log.set_threshold(log.INFO)
