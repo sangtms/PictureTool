@@ -5,7 +5,7 @@ import codecs
 import json
 import builder
 #import pypyodbc
-from builder import MsBuilder
+#from builder import MsBuilder
 import shutil
 from distutils.dir_util import copy_tree
 import logging
@@ -41,6 +41,11 @@ print "Build solution %s" % solution
 if not build_net_core(solution):
 	sys.exit(100)
 
+if not build_net_core(application):
+	sys.exit(100)
+	
+print "Success !"
+	
 def build_net_core(projPath):
 	p = subprocess.call(['dotnet', 'build', projPath, '--configuration','release'])
 	if p==0: return True	# exit early
